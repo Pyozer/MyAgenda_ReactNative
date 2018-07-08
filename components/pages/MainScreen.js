@@ -1,27 +1,33 @@
-import React from 'react'
-import { View, Text, Button } from 'react-native'
-import { createDrawerNavigator } from 'react-navigation'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import React from "react";
+import { View, Text, Button } from "react-native";
+import { createDrawerNavigator } from "react-navigation";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 export default class MainScreen extends React.Component {
-
   static navigationOptions = ({ navigation }) => {
     return {
-      title: 'MyAgenda',
+      title: "MyAgenda",
       headerLeft: (
-        <Icon name="bars" size={20} onPress={() => navigation.toggleDrawer()} style={{marginLeft: 16}} />
+        <Icon
+          name="menu"
+          size={30}
+          onPress={() => navigation.toggleDrawer()}
+          style={{ padding: 16 }}
+        />
       )
-    }
-  }
+    };
+  };
 
   render() {
-    const { navigation } = this.props
+    const { navigation } = this.props;
     return (
       <View>
         <Text>MainScreen</Text>
-        <Button title="Go to About" onPress={() => navigation.navigate('AboutScreen')}/>
+        <Button
+          title="Go to About"
+          onPress={() => navigation.navigate("AboutScreen")}
+        />
       </View>
-    )
+    );
   }
-
 }
