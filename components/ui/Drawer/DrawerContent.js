@@ -1,9 +1,9 @@
 import React from "react";
-import { ScrollView, View, Text, SafeAreaView } from "react-native";
-import { DrawerItems } from "react-navigation";
+import { ScrollView, View, Text } from "react-native";
+import DrawerItem from "./DrawerItem";
 
 const DrawerContent = props => (
-  <View>
+  <ScrollView>
     <View
       style={{
         backgroundColor: "#ff0000",
@@ -14,51 +14,44 @@ const DrawerContent = props => (
     >
       <Text style={{ color: "white", fontSize: 30 }}>Header</Text>
     </View>
-    <DrawerItems {...props} />
-    {/*<ScrollView>
+    <View>
       <DrawerItem
         onPress={() => props.navigation.navigate("FindRoomScreen")}
         text="Find room"
-        icon="home"
+        icon={"location-city" || "meeting_room"}
       />
 
       <DrawerItem
         onPress={() => props.navigation.navigate("SettingsScreen")}
         text="Settings"
-        icon="home"
+        icon="settings"
       />
 
       <DrawerItem
         onPress={() => props.navigation.navigate("UpdateScreen")}
         text="Update"
-        icon="home"
+        icon="system-update"
       />
 
       <DrawerItem
         onPress={() => props.navigation.navigate("AboutScreen")}
         text="About"
-        icon="home"
+        icon="info"
       />
 
       <DrawerItem
         onPress={() => props.navigation.navigate("IntroductionScreen")}
         text="Introduction"
-        icon="home"
+        icon="help-outline"
       />
 
       <DrawerItem
         onPress={() => props.navigation.navigate("LogoutScreen")}
         text="Logout"
-        icon="home"
+        icon="exit-to-app"
       />
-    </ScrollView>*/}
-  </View>
+    </View>
+  </ScrollView>
 );
-
-const styles = {
-  text: {
-    padding: 16
-  }
-};
 
 export default DrawerContent;

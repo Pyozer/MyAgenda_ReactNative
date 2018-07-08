@@ -1,13 +1,8 @@
 import React from "react";
 import { createStackNavigator, createDrawerNavigator } from "react-navigation";
-import DrawerContent from "./components/ui/DrawerContent";
+import DrawerContent from "./components/ui/Drawer/DrawerContent";
 import MainScreen from "./components/pages/MainScreen";
 import AboutScreen from "./components/pages/AboutScreen";
-import Icon from "react-native-vector-icons/MaterialIcons";
-
-const IconDrawer = ({ icon }) => (
-  <Icon name={icon} size={30} style={{ padding: 16, color: "#222" }} />
-);
 
 const StackNavigation = createStackNavigator(
   {
@@ -20,10 +15,8 @@ const StackNavigation = createStackNavigator(
     LogoutScreen: AboutScreen
   },
   {
-    drawerLabel: "Home",
-    drawerIcon: <IconDrawer icon="home" />,
     initialRouteName: "MainScreen",
-    headerMode: "screen",
+    headerMode: "float",
     navigationOptions: {
       headerTitleStyle: { width: "100%" }
     }
@@ -38,30 +31,7 @@ StackNavigation.navigationOptions = ({ navigation }) => {
 
 const App = createDrawerNavigator(
   {
-    FindRoomScreen: {
-      screen: StackNavigation,
-      navigationOptions: {
-        drawerLabel: "Drawer Item 1",
-        drawerIcon: ({ tintColor }) => <IconDrawer icon="home" />
-      }
-    },
-    SettingsScreen: {
-      screen: StackNavigation,
-      navigationOptions: {
-        drawerLabel: "Drawer Item 1",
-        drawerIcon: ({ tintColor }) => <IconDrawer icon="home" />
-      }
-    },
-    UpdateScreen: {
-      screen: StackNavigation
-    },
-    AboutScreen: {
-      screen: StackNavigation
-    },
-    IntroductionScreen: {
-      screen: StackNavigation
-    },
-    LogoutScreen: {
+    StackNav: {
       screen: StackNavigation
     }
   },
