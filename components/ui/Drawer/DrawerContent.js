@@ -1,18 +1,13 @@
 import React from "react";
-import { ScrollView, View, Text } from "react-native";
+import { StyleSheet, ScrollView, View, Text } from "react-native";
 import DrawerItem from "./DrawerItem";
+
+const Separator = () => <View style={styles.separator} />;
 
 const DrawerContent = props => (
   <ScrollView>
-    <View
-      style={{
-        backgroundColor: "#ff0000",
-        height: 140,
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-    >
-      <Text style={{ color: "white", fontSize: 30 }}>Header</Text>
+    <View style={styles.header}>
+      <Text style={styles.headerTitle}>MyAgenda</Text>
     </View>
     <View>
       <DrawerItem
@@ -20,6 +15,8 @@ const DrawerContent = props => (
         text="Find room"
         icon={"location-city" || "meeting_room"}
       />
+
+      <Separator />
 
       <DrawerItem
         onPress={() => props.navigation.navigate("SettingsScreen")}
@@ -33,6 +30,8 @@ const DrawerContent = props => (
         icon="system-update"
       />
 
+      <Separator />
+
       <DrawerItem
         onPress={() => props.navigation.navigate("AboutScreen")}
         text="About"
@@ -45,6 +44,8 @@ const DrawerContent = props => (
         icon="help-outline"
       />
 
+      <Separator />
+
       <DrawerItem
         onPress={() => props.navigation.navigate("LogoutScreen")}
         text="Logout"
@@ -53,5 +54,19 @@ const DrawerContent = props => (
     </View>
   </ScrollView>
 );
+
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: "#ff0000",
+    height: 150,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  headerTitle: { color: "white", fontSize: 30, marginTop: 25 },
+  separator: {
+    borderBottomColor: "black",
+    borderBottomWidth: 0.5
+  }
+});
 
 export default DrawerContent;

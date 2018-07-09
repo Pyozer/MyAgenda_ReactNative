@@ -3,6 +3,7 @@ import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 import DrawerContent from "./components/ui/Drawer/DrawerContent";
 import MainScreen from "./components/pages/MainScreen";
 import AboutScreen from "./components/pages/AboutScreen";
+import SplashScreen from "./components/pages/SplashScreen";
 
 const StackNavigation = createStackNavigator(
   {
@@ -46,4 +47,15 @@ const App = createDrawerNavigator(
   }
 );
 
-export default App;
+const SplashScreenNav = createStackNavigator(
+  {
+    SplashScreen: SplashScreen,
+    MainNavigation: App
+  },
+  {
+    initialRouteName: "SplashScreen",
+    headerMode: "none"
+  }
+);
+
+export default SplashScreenNav;

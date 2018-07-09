@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Button } from "react-native";
 import { createDrawerNavigator } from "react-navigation";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import Container from "../ui/View/Container";
 
 export default class MainScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -21,13 +22,13 @@ export default class MainScreen extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      <View>
+      <Container>
         <Text>MainScreen</Text>
         <Button
           title="Go to About"
           onPress={() => navigation.navigate("AboutScreen")}
         />
-      </View>
+      </Container>
     );
   }
 }
