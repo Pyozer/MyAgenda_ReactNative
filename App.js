@@ -4,6 +4,7 @@ import DrawerContent from "./components/ui/Drawer/DrawerContent";
 import MainScreen from "./components/pages/MainScreen";
 import AboutScreen from "./components/pages/AboutScreen";
 import SplashScreen from "./components/pages/SplashScreen";
+import IntroductionScreen from "./components/pages/IntroductionScreen";
 
 const StackNavigation = createStackNavigator(
   {
@@ -12,7 +13,7 @@ const StackNavigation = createStackNavigator(
     SettingsScreen: AboutScreen,
     UpdateScreen: AboutScreen,
     AboutScreen: AboutScreen,
-    IntroductionScreen: AboutScreen,
+    IntroductionScreen: IntroductionScreen,
     LogoutScreen: AboutScreen
   },
   {
@@ -50,6 +51,7 @@ const App = createDrawerNavigator(
 const SplashScreenNav = createStackNavigator(
   {
     SplashScreen: SplashScreen,
+    IntroductionScreen: IntroductionScreen,
     MainNavigation: App
   },
   {

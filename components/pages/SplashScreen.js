@@ -1,19 +1,48 @@
 import React from "react";
-import { StyleSheet, View, Image, Text, ActivityIndicator } from "react-native";
+import {
+  StyleSheet,
+  AsyncStorage,
+  Image,
+  Text,
+  ActivityIndicator
+} from "react-native";
 import { StackActions, NavigationActions } from "react-navigation";
 import Container from "../ui/View/Container";
 
 export default class SplashScreen extends React.Component {
   componentDidMount() {
-    setTimeout(() => this._navigateTo("MainNavigation"), 500);
+    this._retrieveData();
   }
 
-  _navigateTo = routeName => {
+  _navigateTo = (routeName, params = {}) => {
     const resetAction = StackActions.reset({
       index: 0,
-      actions: [NavigationActions.navigate({ routeName: routeName })]
+      actions: [
+        NavigationActions.navigate({
+          routeName: routeName,
+          params: params
+        })
+      ]
     });
     this.props.navigation.dispatch(resetAction);
+  };
+
+  goToIntroduction = () => {
+    this._navigateTo("IntroductionScreen", { fromSplashScreen: "true" });
+  };
+
+  goToMainScreen = () => {
+    this._navigateTo("MainNavigation");
+  };
+
+  _retrieveData = async () => {
+    try {
+      const value = await AsyncStorage.getItem("alreadyIntro");
+      if (value !== null) this.goToMainScreen();
+      else this.goToIntroduction();
+    } catch (error) {
+      this.goToIntroduction();
+    }
   };
 
   render() {
