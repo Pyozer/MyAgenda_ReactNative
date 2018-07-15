@@ -1,10 +1,10 @@
 import React from "react";
 import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 import DrawerContent from "./components/ui/Drawer/DrawerContent";
-import MainScreen from "./components/pages/MainScreen";
-import AboutScreen from "./components/pages/AboutScreen";
-import SplashScreen from "./components/pages/SplashScreen";
-import IntroductionScreen from "./components/pages/IntroductionScreen";
+import MainScreen from "./components/screens/MainScreen";
+import AboutScreen from "./components/screens/AboutScreen";
+import SplashScreen from "./components/screens/SplashScreen";
+import IntroductionScreen from "./components/screens/IntroductionScreen";
 
 const StackNavigation = createStackNavigator(
   {
