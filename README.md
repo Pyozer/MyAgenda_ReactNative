@@ -1,4 +1,5 @@
 ## MyAgenda
 
 Refonte de l'application avec React Native
-**WIP**
+
+**PROJET ABANDONNÉ, CREATION AVEC FLUTTER AU LIEU DE REACT NATIVE !**
